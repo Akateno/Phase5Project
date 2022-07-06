@@ -1,10 +1,10 @@
-class RecommendationsController < ApplicationController
+class UserBooksController < ApplicationController
     def index 
-        render json: Recommendation.all 
+        render json: current_user.user_books
     end 
 
     def create 
-        book=current_user.recommendations.create!(book_params)
+        book=current_user.user_books.create!(book_params)
         render json: book, status: :created 
     end 
 
@@ -12,13 +12,16 @@ class RecommendationsController < ApplicationController
         book=find_book
         render json: book 
     end 
-
+    def destroy 
+        like = current_user.user_books.find(params[:id]) 
+        like.destroy
+    end 
    
 
     private
 
     def find_book
-        Recommendation.find(params[:id])
+        UserBook.find(params[:id])
     end 
 
    
@@ -30,5 +33,4 @@ class RecommendationsController < ApplicationController
     def book_params
         params.permit(:title, :author, :image)
     end 
-
 end

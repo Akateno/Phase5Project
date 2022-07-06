@@ -1,28 +1,25 @@
 import React from "react"
-import BookCard from "./BookCard"
-function BookList({book, selectedBook, setId}) {
+import UserBookCard from "./UserBookCard"
+function UserList({book, onDeleteBook, selectedBook, setId}) {
   
   
     return (
       <div className="cards">
          {book.map((boo)=>(
-          <BookCard
+          <UserBookCard
           id={boo.id}
           key={boo.id}
           title={boo.title}
           author={boo.author}
           image={boo.image}
-          userID={boo.user_id}
-          setId={setId}
-          selectedBook={selectedBook}
+          userId={boo.user_id}
+          onDeleteBook={onDeleteBook}
           />
-          
          ))}
-         
       </div>
     );
   }
   
 
 
-export default BookList;
+export default UserList;

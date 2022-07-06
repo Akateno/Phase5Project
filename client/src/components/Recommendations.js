@@ -3,6 +3,8 @@ import RecList from "./RecList"
 
 function Recommendations() {
   const [books, setBooks] = useState([])
+  const [id, setId] = useState(null);
+
   
 
   useEffect(() => {
@@ -18,12 +20,21 @@ function Recommendations() {
     setBooks(updatedBooks);
   }
 
+  function handleDeleteBook(id) {
+    const updatedRec = books.filter((book) => book.id !== id);
+    setBooks(updatedRec);
+  }
+
+  //adding comments link 
+
+
+  const selectedBook = books.find((a) => a.id === id);
  
 
     return (
       <div className="bookcontainer">
           <h1  className="bookheader">Community Recommended Books</h1>
-          <RecList onUpdateBook={handleUpdateBook} book = {books}/>
+          <RecList onDeleteBook={handleDeleteBook} onUpdateBook={handleUpdateBook} book = {books} setId={setId} selectedBook={selectedBook}/>
         </div>
     );
   }

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_06_30_164249) do
+ActiveRecord::Schema.define(version: 2022_07_06_012228) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,6 +25,26 @@ ActiveRecord::Schema.define(version: 2022_06_30_164249) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "comments", force: :cascade do |t|
+    t.text "content"
+    t.bigint "recommendation_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["recommendation_id"], name: "index_comments_on_recommendation_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
+  end
+
+  create_table "likes", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "recommendation_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["recommendation_id"], name: "index_likes_on_recommendation_id"
+    t.index ["user_id", "recommendation_id"], name: "index_likes_on_user_id_and_recommendation_id", unique: true
+    t.index ["user_id"], name: "index_likes_on_user_id"
+  end
+
   create_table "recommendations", force: :cascade do |t|
     t.string "title"
     t.string "author"
@@ -32,7 +52,15 @@ ActiveRecord::Schema.define(version: 2022_06_30_164249) do
     t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "likes"
+  end
+
+  create_table "user_books", force: :cascade do |t|
+    t.string "title"
+    t.string "author"
+    t.string "image"
+    t.integer "user_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -43,4 +71,8 @@ ActiveRecord::Schema.define(version: 2022_06_30_164249) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "comments", "recommendations"
+  add_foreign_key "comments", "users"
+  add_foreign_key "likes", "recommendations"
+  add_foreign_key "likes", "users"
 end

@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
+  resources :comments
+  resources :user_books
   resources :recommendations
   resources :books
   resources :users
+  resources :likes, only: [:create, :destroy, :index]
   #session controller
   post "/login", to: "sessions#create"
   delete "/logout", to: "sessions#destroy"

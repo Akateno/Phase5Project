@@ -31,7 +31,7 @@ function App() {
         </Switch> */}
         {user ? (
           <Switch>
-            <Route exact path="/">
+            <Route exact path="/home">
               <Home user={user} />
             </Route>
             <Route path="/books">

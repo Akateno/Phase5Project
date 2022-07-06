@@ -13,7 +13,7 @@ function NavBar({ user, setUser }) {
   return (
     <header>
       <div>
-        <Link to="/">Home</Link>
+        <Link to="/home">Home</Link>
       </div>
       <div>
         <Link to="/books">Book List</Link>

@@ -32,6 +32,25 @@ function BookCard({ id, title, author, image, userID, setId, selectedBook }) {
     //   const handleImageClick  = () => {
     //     setVisibleDetails(!visibleDetails)
     // }
+    function addLibrary() {
+      fetch("/user_books", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          title,
+          author,
+          image,
+        }),
+      }).then((r) => {
+        if (r.ok) {
+          history.push("/home");
+        } else {
+          r.json().then((err) => setErrors(err.errors));
+        }
+      });
+    }
     
 
   return (
@@ -42,8 +61,8 @@ function BookCard({ id, title, author, image, userID, setId, selectedBook }) {
         <div className="cardDetails">
           <h2>Name: {title}</h2>
         <h3><em>Author: {author}</em> </h3>
-        <button className="addButton" onClick={handleClick} > Add to Rec</button>
-        <button  className="addButton" > Leave Review</button>
+        <button className="addButton" onClick={handleClick} > Recommend </button>
+        <button  className="addButton" onClick={addLibrary} > Add to Library</button>
         </div>
       </div>
     </div>
