@@ -9,9 +9,6 @@ function BookCard({ likeId, id, title, author, image, user, onUpdateBook, onDele
   const [like, setLike]=useState(false)
   const [visibleDetails, setVisibleDetails] = useState(false);
 
-  
-
-
     function handleClick() {
       fetch(`/likes`, {
          method: "POST",
@@ -34,31 +31,33 @@ function BookCard({ likeId, id, title, author, image, user, onUpdateBook, onDele
       fetch(`/likes/${likeId}`, {
       method: "DELETE",
       });
-     ;
+     setLike(false);
     }
-   
     
-   
+    
     return (
    
       <div className="cards">
       <div className="card" onClick={() => setId(id)}>
-        <img  className="cardPic" src={image} alt={title} />
+
+      <div class="ui card"><div class="image"><img className="cardPic" src={image} alt={title}/></div>
+      <div class="content"><div class="header">Name: {title}</div>
+      <div class="meta">Author: {author}</div>
+      <div class="description">Reccomended by : {user} {like? (<button class="ui icon button" onClick={handleDeleteClick}  > Unlike </button>): (<button class="ui icon button" onClick={handleClick} > Like </button>)}</div></div>
+      <div class="extra content" > <a onClick={handleImageClick}><i aria-hidden="true" class="comment icon"></i>Comments </a></div>{ visibleDetails ? <Comments book={selectedBook} /> : []}</div>
+      
+        {/* <img  className="cardPic" src={image} alt={title} />
         <div className="cardDetails">
           <h2>Name: {title}</h2>
-        <h3><em>Author: {author}</em> </h3>
-        <h4>Reccomended by : {user}</h4>
+          <h3><em>Author: {author}</em> </h3>
+          <h4>Reccomended by : {user}</h4>
 
-       
-          <button className="like" onClick={handleClick} > Like </button>
+           {like? (<button className="dislike" onClick={handleDeleteClick}  > Unlike </button>): (<button className="like" onClick={handleClick} > Like </button>)} 
           
-
-          <button className="dislike" onClick={handleDeleteClick} > Unlike </button>
-        
-          <h3 className="addReview" onClick={handleImageClick}>Comments </h3>   
+           <h3 className="addReview" onClick={handleImageClick}>Comments </h3>     
 
           { visibleDetails ? <Comments book={selectedBook} /> : []}
-        </div>
+        </div> */}
       </div>
     </div>
     

@@ -12,13 +12,22 @@ function Comments({ book }) {
     function onAddComment(newComment) {
         const updatedComments = [...books, newComment];
         setBooks(updatedComments);
-      }
+    }
 
-  const userItems = book.comments.map((rc)=>(
+  const userItems = books.comments.map((rc)=>(
     
     <div className="reviewsContainer"key={rc.id}>
-      <p>Comment: {rc.content}</p>
-      <button onClick={() => setIsEditing((isEditing) => !isEditing)}>+</button>
+     
+      
+
+
+
+      <div class="ui comments"><div class="comment"><a class="avatar"><img src="https://t3.ftcdn.net/jpg/01/18/01/98/360_F_118019822_6CKXP6rXmVhDOzbXZlLqEM2ya4HhYzSV.jpg"/></a>
+      <div class="content"><div class="author">UserName</div>
+      <div class="text">Comment: {rc.content}</div>
+      <div class="actions"><a class="">Reply</a><a class="">Save</a><a class="">Hide</a>
+      </div></div></div></div>
+       {/* <button onClick={() => setIsEditing((isEditing) => !isEditing)}>+</button>
 
         {isEditing ? (
         <NewComment 
@@ -29,7 +38,7 @@ function Comments({ book }) {
         />
       ) : (
         <p></p>
-      )}
+      )}  */}
 
     </div>
   ))
@@ -37,11 +46,17 @@ function Comments({ book }) {
   return (
     <div>
         <div>
-               <h3 className="userReviews">User Comments</h3> 
-              
-              
+        <button onClick={() => setIsEditing((isEditing) => !isEditing)}>+</button>
                 {userItems}
         </div>
+        {
+            isEditing? (<NewComment 
+              id={books.id}
+              onAddComment={onAddComment}
+              
+            />):(<p></p>)
+        }
+        
     </div>
   );
 }

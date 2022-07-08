@@ -1,8 +1,12 @@
 import React, { useState } from "react";
 
+
+
 function Login({ setUser }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  
+  
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -14,15 +18,18 @@ function Login({ setUser }) {
       body: JSON.stringify({ username, password }),
     }).then((r) => {
       if (r.ok) {
-        r.json().then((user) => setUser(user));
+        r.json().then((user) => setUser(user))
+        
+
        
       }
     });
   }
 
   return (
+    
     <div>
-      <form onSubmit={handleSubmit}>
+      <form class="ui form" onSubmit={handleSubmit}>
         <h1>Login</h1>
         <label htmlFor="username">Username</label>
         <input

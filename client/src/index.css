@@ -1,16 +1,11 @@
-/* .cards {
+.cards {
   display: flex;
-  flex-grow: 1;
-  flex-basis: 15em;
-  width: auto;
   flex-wrap: wrap;
-  justify-content: space-between;
-  padding-bottom: 30px;
-  color:white;
+  /* to center  */
+  justify-content: center;
+
+  justify-content: space-around;
+  
   
 }
 
-.card {
-  flex: 0 2 24%;
-  
-} */

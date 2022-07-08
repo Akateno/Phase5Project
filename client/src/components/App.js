@@ -20,6 +20,8 @@ function App() {
     });
   }, []);
 
+  
+
   return (
     <>
       <NavBar user={user} setUser={setUser} />
@@ -49,9 +51,7 @@ function App() {
             <Route path="/login">
               <Login setUser={setUser} />
             </Route>
-            <Route exact path="/">
-              <Home />
-            </Route>
+            
            
           </Switch>
         )}

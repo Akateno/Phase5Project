@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-function NewComment({id, contentt, onAddComment}) {
-    const [content, setContent] = useState(contentt);
+function NewComment({id, onAddComment}) {
+    const [content, setContent] = useState("");
     console.log(id)
-    console.log(contentt)
+    
     function handleFormSubmit(e) {
         e.preventDefault();
          fetch(`/comments`, {
@@ -16,7 +16,7 @@ function NewComment({id, contentt, onAddComment}) {
            }),
          })
            .then((r) => r.json())
-           .then((addComment) => console.log(addComment));
+           .then((addComment) => onAddComment(addComment));
       }
 
 
@@ -24,7 +24,8 @@ function NewComment({id, contentt, onAddComment}) {
 
     return (
     <form className="editRecord" onSubmit={handleFormSubmit}>
-    <input  type="text" onChange={(e) => setContent(e.target.value)} value={content} name="name" placeholder="comment.." />
+    {/* <input  type="text" onChange={(e) => setContent(e.target.value)} value={content} name="name" placeholder="comment.." /> */}
+    <div class="ui fluid icon input"><input  type="text" onChange={(e) => setContent(e.target.value)} value={content} name="name" placeholder="comment.." /></div>
     <input type="submit" value="Save" />
    </form>
     )
