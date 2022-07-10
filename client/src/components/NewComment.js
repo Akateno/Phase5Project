@@ -5,7 +5,7 @@ function NewComment({id, onAddComment}) {
     
     function handleFormSubmit(e) {
         e.preventDefault();
-         fetch(`/comments`, {
+         fetch(`/recommendations/${id}/comments`, {
            method: "POST",
            headers: {
              "Content-Type": "application/json",
@@ -26,7 +26,10 @@ function NewComment({id, onAddComment}) {
     <form className="editRecord" onSubmit={handleFormSubmit}>
     {/* <input  type="text" onChange={(e) => setContent(e.target.value)} value={content} name="name" placeholder="comment.." /> */}
     <div class="ui fluid icon input"><input  type="text" onChange={(e) => setContent(e.target.value)} value={content} name="name" placeholder="comment.." /></div>
-    <input type="submit" value="Save" />
+    <button className="ui button" type="submit">
+          Add
+     </button>
+    {/* <input type="submit" value="Save" /> */}
    </form>
     )
   }

@@ -11,17 +11,19 @@ function Recommendations() {
     fetch("/recommendations")
       .then((r) => r.json())
       .then((books) => setBooks(books));
-  }, []);
+    }, []);
 
-   function onAddComment(newComment) {
+    //adding comments
+    function onAddComment(newComment) {
         const updatedComments = [...books, newComment];
         setBooks(updatedComments);
-   }
+    }
+   
 
-  //adding comments link 
+  
 
 
-  const selectedBook = books.find((a) => a.id === id);
+    const selectedBook = books.find((a) => a.id === id);
  
 
     return (
@@ -30,7 +32,7 @@ function Recommendations() {
           <RecList onAddComment={onAddComment} book = {books} setId={setId} selectedBook={selectedBook}/>
         </div>
     );
-  }
+}
   
 
 

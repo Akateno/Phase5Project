@@ -15,8 +15,9 @@ function BookList({book, selectedBook, setId, onAddComment}) {
           setId={setId}
           selectedBook={selectedBook}
 
-          // likeId={boo.likes.map((like)=>
-          //   (like.id))}
+          //  likeId={boo.likes.map((like)=>
+          //    (like.id))}
+          likeId={boo.likes}
           
           book={book}
           onAddComment={onAddComment}
