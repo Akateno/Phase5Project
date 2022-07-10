@@ -20,9 +20,11 @@ function App() {
     });
   }, []);
 
-  
+  if (!user) return <Login onLogin={setUser} />;
 
   return (
+
+    
     <>
       <NavBar user={user} setUser={setUser} />
       <main>

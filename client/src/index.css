@@ -8,4 +8,16 @@
   
   
 }
+.loginForm{
+  width: 500px;
+  margin: auto;
+  padding: 1rem;
+}
+
+.SignupForm {
+  width: 500px;
+  margin: auto;
+  padding: 1rem;
+}
+
 

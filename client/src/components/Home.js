@@ -27,13 +27,14 @@ const [books, setBooks] = useState([])
 
   return (
     <div className="bookcontainer">
+      <div> 
+          <h2 class="ui header"><img src="https://react.semantic-ui.com/images/avatar/large/patrick.png" class="ui circular image"/>{user.username} </h2>
+          <div role="list" class="ui list"><div role="listitem" class="item"><i aria-hidden="true" class="users icon"></i><div class="content">Semantic UI</div></div><div role="listitem" class="item"><i aria-hidden="true" class="marker icon"></i><div class="content">New York, NY</div></div><div role="listitem" class="item"><i aria-hidden="true" class="mail icon"></i><div class="content"><a href="mailto:jack@semantic-ui.com">jack@semantic-ui.com</a></div></div><div role="listitem" class="item"><i aria-hidden="true" class="linkify icon"></i><div class="content"><a href="http://www.semantic-ui.com">semantic-ui.com</a></div></div></div>
+      </div>
         <h1  className="bookheader">Welcome, {user.username}!</h1>
         <UserList onDeleteBook={handleDeleteBook} book = {books} />
-      </div>
+    </div>
   );
-
-
-
   }
   
   export default Home;

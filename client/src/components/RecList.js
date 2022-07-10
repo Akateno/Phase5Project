@@ -1,6 +1,6 @@
 import React from "react"
 import RecCard from "./RecCard"
-function BookList({book, onUpdateBook, onDeleteBook, selectedBook, setId}) {
+function BookList({book, selectedBook, setId, onAddComment}) {
   
   // console.log(book)
     return (
@@ -15,14 +15,14 @@ function BookList({book, onUpdateBook, onDeleteBook, selectedBook, setId}) {
           setId={setId}
           selectedBook={selectedBook}
 
-          likeId={boo.likes.map((like)=>
-            (like.id))}
+          // likeId={boo.likes.map((like)=>
+          //   (like.id))}
           
           book={book}
-          onUpdateBook={onUpdateBook}
+          onAddComment={onAddComment}
 
           user={boo.user.username}
-          onDeleteBook={onDeleteBook}
+         
           
           />
          ))}

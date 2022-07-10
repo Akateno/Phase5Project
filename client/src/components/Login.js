@@ -1,56 +1,45 @@
-import React, { useState } from "react";
+import { useState } from "react";
+import LoginForm from "./LoginForm";
+import SignUp from "./SignUp";
 
 
-
-function Login({ setUser }) {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-  
-  
-
-  function handleSubmit(e) {
-    e.preventDefault();
-    fetch("/login", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ username, password }),
-    }).then((r) => {
-      if (r.ok) {
-        r.json().then((user) => setUser(user))
-        
-
-       
-      }
-    });
-  }
+function Login({ onLogin }) {
+  const [showLogin, setShowLogin] = useState(true);
 
   return (
-    
-    <div>
-      <form class="ui form" onSubmit={handleSubmit}>
-        <h1>Login</h1>
-        <label htmlFor="username">Username</label>
-        <input
-          type="text"
-          id="username"
-          autoComplete="off"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-        />
-        <label htmlFor="password">Password</label>
-        <input
-          type="password"
-          id="password"
-          autoComplete="current-password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
-        <button type="submit">Login</button>
-      </form>
+   
+    <div className="backgroundLogin">
+         
+         
+             {showLogin ? (
+           <>
+            <LoginForm onLogin={onLogin} setShowLogin={setShowLogin} />
+          
+            {/* <h3 className="signIn">
+            Don't have an account? &nbsp;
+            <button className="signInbutton"color="secondary" onClick={() => setShowLogin(false)}>
+              Sign Up
+            </button>
+            </h3> */}
+            </>
+           ) : (
+             <>
+            <SignUp onLogin={onLogin} setShowLogin={setShowLogin} />
+          
+            {/* <h3 className="logIn">
+            Already have an account? &nbsp;
+            <button className="loginButton" color="secondary" onClick={() => setShowLogin(true)}>
+              Log In
+            </button>
+            </h3> */}
+             </>
+              )}
+              <div className="recordBack"></div>
+              
     </div>
   );
+   
+     
 }
 
 export default Login;

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-function SignUp({ setUser }) {
+function SignUp({ onLogin, setShowLogin }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [passwordConfirmation, setPasswordConfirmation] = useState("");
@@ -19,18 +19,18 @@ function SignUp({ setUser }) {
       }),
     }).then((r) => {
       if (r.ok) {
-        r.json().then((user) => setUser(user));
+        r.json().then((user) => onLogin(user));
       }
     });
   }
 
   return (
-    <div>
+    <div className="SignupForm">
       <div class="ui attached message">
         <div class="content">
-        <p>Fill out the form below to sign-up for a new account</p>
+        
         <div class="header">Welcome to BookShare!</div>
-          
+          <p>Fill out the form below to sign-up for a new account</p>
         </div>
       </div>
       <form class="ui form attached fluid segment" onSubmit={handleSubmit}>
@@ -61,7 +61,7 @@ function SignUp({ setUser }) {
             />
             <button class="ui blue button" type="submit">Sign Up</button>
           </form>
-          <div class="ui warning bottom attached message"><i aria-hidden="true" class="help icon"></i>Already signed up? <a href="#">Login here</a> instead.</div>
+          <div class="ui warning bottom attached message"><i aria-hidden="true" class="help icon"></i>Already signed up? <button class="ui blue button" onClick={() => setShowLogin(true)}>Login</button> instead.</div>
     </div>
   );
 }

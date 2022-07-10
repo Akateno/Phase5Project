@@ -13,17 +13,10 @@ function Recommendations() {
       .then((books) => setBooks(books));
   }, []);
 
-  function handleUpdateBook(updatedBook) {
-    const updatedBooks = books.map((book) =>
-      book.id === updatedBook.id ? updatedBook : book
-    );
-    setBooks(updatedBooks);
-  }
-
-  function handleDeleteBook(id) {
-    const updatedRec = books.filter((book) => book.id !== id);
-    setBooks(updatedRec);
-  }
+   function onAddComment(newComment) {
+        const updatedComments = [...books, newComment];
+        setBooks(updatedComments);
+   }
 
   //adding comments link 
 
@@ -34,7 +27,7 @@ function Recommendations() {
     return (
       <div className="bookcontainer">
           <h1  className="bookheader">Community Recommended Books</h1>
-          <RecList onDeleteBook={handleDeleteBook} onUpdateBook={handleUpdateBook} book = {books} setId={setId} selectedBook={selectedBook}/>
+          <RecList onAddComment={onAddComment} book = {books} setId={setId} selectedBook={selectedBook}/>
         </div>
     );
   }

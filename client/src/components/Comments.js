@@ -4,15 +4,15 @@ import NewComment from "./NewComment"
 
 
 
-function Comments({ book }) {
+function Comments({ book, onAddComment }) {
     const [books, setBooks]=useState(book)
     const [isEditing, setIsEditing] = useState(false);
     console.log(book)
     
-    function onAddComment(newComment) {
-        const updatedComments = [...books, newComment];
-        setBooks(updatedComments);
-    }
+    // function onAddComment(newComment) {
+    //     const updatedComments = [...books, newComment];
+    //     setBooks(updatedComments);
+    // }
 
   const userItems = books.comments.map((rc)=>(
     
