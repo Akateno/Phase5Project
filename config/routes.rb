@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
-  
+  resources :likes, only: [:create, :destroy, :index]
   resources :user_books
   resources :recommendations do
     resources :comments
-    resources :likes, only: [:create, :destroy, :index]
+    
   end 
 
   resources :books

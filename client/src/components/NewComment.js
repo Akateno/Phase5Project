@@ -1,7 +1,9 @@
 import React, { useState } from "react";
+
 function NewComment({id, onAddComment}) {
     const [content, setContent] = useState("");
     console.log(id)
+  
     
     function handleFormSubmit(e) {
         e.preventDefault();
@@ -18,14 +20,14 @@ function NewComment({id, onAddComment}) {
            .then((r) => r.json())
            .then((addComment) => onAddComment(addComment));
       }
-
-
-
+ 
 
     return (
-    <form className="editRecord" onSubmit={handleFormSubmit}>
+    <form className="addComment" onSubmit={handleFormSubmit}>
     {/* <input  type="text" onChange={(e) => setContent(e.target.value)} value={content} name="name" placeholder="comment.." /> */}
-    <div class="ui fluid icon input"><input  type="text" onChange={(e) => setContent(e.target.value)} value={content} name="name" placeholder="comment.." /></div>
+    <div class="ui fluid icon input">
+      <input  type="text" onChange={(e) => setContent(e.target.value)} value={content} name="comment" placeholder="comment.." />
+    </div>
     <button className="ui button" type="submit">
           Add
      </button>

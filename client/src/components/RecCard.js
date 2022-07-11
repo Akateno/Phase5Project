@@ -4,10 +4,11 @@ import Comments from "./Comments"
 
 
 
-function BookCard({ likeId, id, title, author, image, user, onAddComment, selectedBook, setId }) {
+function BookCard({ likeId, id, title, author, image, user, onAddComment, selectedBook, setId, addLike, removeLike }) {
 
-  const [like, setLike]=useState(false)
+  // const [like, setLike]=useState(false)
   const [visibleComments, setVisibleComments] = useState(false);
+  console.log(likeId)
 
     function handleClick() {
       fetch(`/likes`, {
@@ -20,7 +21,7 @@ function BookCard({ likeId, id, title, author, image, user, onAddComment, select
         }),
       })
        .then((r) => r.json())
-       .then((items) => setLike(true));
+       .then((like) => addLike(id, like));
     }
    
     const handleImageClick  = () => {
@@ -28,10 +29,10 @@ function BookCard({ likeId, id, title, author, image, user, onAddComment, select
 
     function handleDeleteClick() {
    
-      fetch(`/likes/${likeId}`, {
+      fetch(`/likes/${likeId.id}`, {
       method: "DELETE",
       });
-     setLike(false);
+      removeLike(id, likeId)
     }
     
     
@@ -40,10 +41,11 @@ function BookCard({ likeId, id, title, author, image, user, onAddComment, select
       <div className="cards">
       <div className="card" onClick={() => setId(id)}>
 
-      <div class="ui card"><div class="image"><img className="cardPic" src={image} alt={title}/></div>
+      <div class="ui card"><div class="image"><img  className="cardPic" src={image} alt={title}/></div>
       <div class="content"><div class="header">Name: {title}</div>
       <div class="meta">Author: {author}</div>
-      <div class="description">Reccomended by : {user} {like? (<button class="ui icon button" onClick={handleDeleteClick}  > Unlike </button>): (<button class="ui icon button" onClick={handleClick} > Like </button>)}</div></div>
+      
+      <div class="description">Reccomended by : {user} {likeId? (<button id={likeId} class="ui icon button" onClick={handleDeleteClick}  > Unlike </button>): (<button class="ui icon button" onClick={handleClick} id={likeId} > Like </button>)}</div></div>
       <div class="extra content" > <a onClick={handleImageClick}><i aria-hidden="true" class="comment icon"></i>Comments </a></div>{ visibleComments ? <Comments onAddComment={onAddComment} book={selectedBook} /> : []}</div>
       
         {/* <img  className="cardPic" src={image} alt={title} />

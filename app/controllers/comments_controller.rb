@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-    before_action :get_recommendation
+    # before_action :get_recommendation
     def index 
         render json: Comment.all 
     end 
@@ -29,8 +29,8 @@ class CommentsController < ApplicationController
     def comment_params
         params.permit(:content, :recommendation_id)
     end 
-    def get_recommendation
-        @recommendation = Recommendation.find(params[:recommendation_id])
-      end
+    # def get_recommendation
+    #     @recommendation = Recommendation.find(params[:recommendation_id])
+    #   end
 
 end

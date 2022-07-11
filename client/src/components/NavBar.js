@@ -11,7 +11,7 @@ function NavBar({ user, setUser }) {
   }
 
   return (
-    <header class="ui massive breadcrumb">
+    <div> <header class="ui massive breadcrumb">
       {/* <div class="ui breadcrumb"><a class="section">Home</a>
       <div class="divider">/</div><a class="section">Store</a>
       <div class="divider">/</div>
@@ -34,17 +34,21 @@ function NavBar({ user, setUser }) {
         <i aria-hidden="true" class="right chevron icon divider"></i>
       </div>
 
-      <div>
+      
+    </header>
+<div>
         {user ? (
-          <button class="ui icon button" onClick={handleLogoutClick}>Logout</button>
+          <div className="logoutButton"><button class="ui icon button" onClick={handleLogoutClick}>Logout</button>
+          </div>
         ) : (
           <>
             <Link to="/signup">Signup</Link>
             <Link to="/login">Login</Link>
           </>
         )}
-      </div>
-    </header>
+      </div></div>
+   
+
   );
 }
 

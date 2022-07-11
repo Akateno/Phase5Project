@@ -20,4 +20,20 @@
   padding: 1rem;
 }
 
+.homeHeader{
+  background-color: aquamarine;
+}
+.bookheader{
+  background-color: #4d53b3;
+  font-size:50px;
+  color: white;
+}
+.bookcontainer{
+  background-color: #c3d4ee;
+}
+.logoutButton{
+  float: right;
+  margin: 5px;
+}
+
 

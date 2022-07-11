@@ -42,7 +42,7 @@ function App() {
             <Books/>
             </Route>
             <Route path="/recommendations">
-            <Recommendations/>
+            <Recommendations user={user}/>
             </Route>
           </Switch>
         ) : (
