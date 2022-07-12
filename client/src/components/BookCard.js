@@ -49,8 +49,8 @@ function BookCard({ id, title, author, image, userID, setId, selectedBook }) {
     }
   return (
    
-    <div className="cards">
-      <div className="card" onClick={() => setId(id)}>
+    <div className="listcards">
+      <div className="listcard" onClick={() => setId(id)}>
       </div>
       <div class="ui card"><div class="image"><img className="cardPic" src={image} alt={title}/></div><div class="content"><div class="header">Name: {title}</div><div class="meta">Author: {author}</div><div class="description">New York Times Best Seller</div></div><div class="extra content"><a><i aria-hidden="true" class="user icon"></i> <button className="addButton" onClick={handleClick} > Recommend </button>
       <button  className="addButton" onClick={addLibrary} > Add to Library</button></a></div></div>

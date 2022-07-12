@@ -31,7 +31,7 @@ function Recommendations({user}) {
 
     function addLike(bookId, like){
       setBooks(books.map(b => {
-        if(b.id == bookId) {
+        if(b.id === bookId) {
           return {...b, likes: [...b.likes, like]}
         } else{
           return b
@@ -41,8 +41,8 @@ function Recommendations({user}) {
 
     function removeLike(bookId, likeId) {
       setBooks(books.map(b => {
-        if(b.id == bookId){
-          return {...b, likes: b.likes.filter(l => l.id != likeId)}
+        if(b.id === bookId){
+          return {...b, likes: b.likes.filter(l => l.id !== likeId)}
         } else {
           return b
         }
@@ -55,7 +55,15 @@ function Recommendations({user}) {
 
     return (
       <div className="bookcontainer">
-          <h1  className="bookheader">Community Recommended Books</h1>
+          
+          
+            <div className="recHeader">
+              <div>
+                <h1  className="bookheader">Community Recommended Books</h1>
+              </div>
+            </div>
+            <h4 className="recMessage">Browse Books recommended by your community</h4>
+          
           <RecList onAddComment={onAddComment} book = {books} setId={setId} user={user} selectedBook={selectedBook} removeLike={removeLike} addLike={addLike}/>
         </div>
     );

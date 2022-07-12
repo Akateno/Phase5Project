@@ -4,7 +4,7 @@ function BookList({book, selectedBook, setId}) {
   
   
     return (
-      <div className="cards">
+      <div className="listcards">
          {book.map((boo)=>(
           <BookCard
           id={boo.id}

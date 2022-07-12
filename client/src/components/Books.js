@@ -10,15 +10,29 @@ function Books() {
       .then((books) => setBooks(books));
   }, []);
 
-  
-
   const selectedBook = books.find((a) => a.id === id);
 
+
+
+
     return (
+      
       <div className="bookcontainer">
-          <h1  className="bookheader"> Books List</h1>
+
+          <form className="search" >
+            <div class="ui fluid icon input">
+              <input  type="text"  name="comment" placeholder="searchbooks.." />
+            </div>
+            <button className="ui button" type="submit">
+              search
+            </button>
+          </form>
+
+
+
+          <h1  className="bookListHeader"> Browse book selection</h1>
           <BookList book = {books} selectedBook={selectedBook} setId={setId}/>
-        </div>
+     </div>
     );
   }
   

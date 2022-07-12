@@ -9,44 +9,43 @@ function NavBar({ user, setUser }) {
       }
     });
   }
-
   return (
-    <div> <header class="ui massive breadcrumb">
-      {/* <div class="ui breadcrumb"><a class="section">Home</a>
-      <div class="divider">/</div><a class="section">Store</a>
-      <div class="divider">/</div>
-      <div class="active section">T-Shirt</div></div> */}
+    <div  className="navbar"> 
+
       
+
+      <header class="ui menu" color="white" >
       
-      <div class="divider">
+        <div class="active item" >
         <Link class="section" to="/home">Home</Link>
         <i aria-hidden="false" class="right chevron icon divider"></i>
-      </div>
+        </div>
 
-      <div class="divider">
+        <div class="item">
         <Link class="section" to="/books">Book List</Link>
         <i aria-hidden="true" class="right chevron icon divider"></i>
-      </div>
+        </div>
 
-      <div class="divider" >
+        <div class="item" >
 
         <Link class="section" to="/recommendations"> Recomendations </Link>
         <i aria-hidden="true" class="right chevron icon divider"></i>
-      </div>
+        </div>
 
-      
-    </header>
-<div>
-        {user ? (
-          <div className="logoutButton"><button class="ui icon button" onClick={handleLogoutClick}>Logout</button>
-          </div>
+        <div className="right menu">
+          {user ? (
+          <div class="item"><button  onClick={handleLogoutClick}>Logout</button>
+        </div>
         ) : (
           <>
             <Link to="/signup">Signup</Link>
             <Link to="/login">Login</Link>
           </>
         )}
-      </div></div>
+      </div>
+      </header>
+
+    </div>
    
 
   );

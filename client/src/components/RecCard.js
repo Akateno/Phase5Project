@@ -32,7 +32,7 @@ function BookCard({ likeId, id, title, author, image, user, onAddComment, select
       fetch(`/likes/${likeId.id}`, {
       method: "DELETE",
       });
-      removeLike(id, likeId)
+      removeLike(id, likeId.id)
     }
     
     
@@ -61,6 +61,7 @@ function BookCard({ likeId, id, title, author, image, user, onAddComment, select
           { visibleDetails ? <Comments book={selectedBook} /> : []}
         </div> */}
       </div>
+      
     </div>
     
   );

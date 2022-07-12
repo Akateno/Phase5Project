@@ -6,6 +6,8 @@ import NavBar from "./NavBar";
 import Home from "./Home";
 import Books from "./Books";
 import Recommendations from "./Recommendations";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCoffee } from '@fortawesome/free-solid-svg-icons'
 
 
 function App() {
@@ -24,10 +26,13 @@ function App() {
 
   return (
 
-    
-    <>
-      <NavBar user={user} setUser={setUser} />
-      <main>
+    <div >
+      < NavBar user={user} setUser={setUser} />
+      <div className="logo">
+        <FontAwesomeIcon icon={faCoffee} />
+      </div>
+      
+      <div  >
         {/* <Switch>
           <Route path="booklist">
             <BookList/>
@@ -57,8 +62,9 @@ function App() {
            
           </Switch>
         )}
-      </main>
-    </>
+      </div>
+    </div>
+    
   );
 }
 

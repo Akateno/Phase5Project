@@ -8,15 +8,18 @@ function Comments({ book, onAddComment }) {
     const [books, setBooks]=useState(book)
     const [isEditing, setIsEditing] = useState(false);
     console.log(book)
-    
-    // function onAddComment(newComment) {
-    //     const updatedComments = [...books, newComment];
-    //     setBooks(updatedComments);
-    // }
 
   const userItems = book.comments.map((rc)=>(
+
+    
     
     <div className="reviewsContainer"key={rc.id}>
+
+
+      
+
+
+
       <div class="ui comments"><div class="comment"><a class="avatar"><img src="https://t3.ftcdn.net/jpg/01/18/01/98/360_F_118019822_6CKXP6rXmVhDOzbXZlLqEM2ya4HhYzSV.jpg"/></a>
       <div class="content"><div class="author">UserName</div>
       <div class="text">Comment: {rc.content}</div>
@@ -37,6 +40,7 @@ function Comments({ book, onAddComment }) {
 
   return (
     <div>
+      
         <div>
         <button onClick={() => setIsEditing((isEditing) => !isEditing)}>+</button>
                 {userItems}

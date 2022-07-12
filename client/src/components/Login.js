@@ -1,6 +1,8 @@
 import { useState } from "react";
 import LoginForm from "./LoginForm";
 import SignUp from "./SignUp";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCoffee } from '@fortawesome/free-solid-svg-icons'
 
 
 function Login({ onLogin }) {
@@ -8,9 +10,12 @@ function Login({ onLogin }) {
 
   return (
    
-    <div className="backgroundLogin">
-         
-         
+    <div className="homeBackground" >
+        
+        
+        
+        <div className="title"><h1 class="ui header"><div className="title"> BookShare <FontAwesomeIcon icon={faCoffee} /> </div></h1></div>
+        <h3 class="ui dividing header"></h3>
              {showLogin ? (
            <>
             <LoginForm onLogin={onLogin} setShowLogin={setShowLogin} />

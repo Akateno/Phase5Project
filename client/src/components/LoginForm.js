@@ -36,7 +36,7 @@ function Login({ onLogin,setShowLogin }) {
            <p>Sign In to your account</p>
         </div>
       </div>
-      <form class="ui form" onSubmit={handleSubmit}>
+      <form class="ui form attached fluid segment" onSubmit={handleSubmit}>
         <h1>Login</h1>
         <label htmlFor="username">Username</label>
         <input

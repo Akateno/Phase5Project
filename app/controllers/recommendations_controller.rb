@@ -28,7 +28,7 @@ class RecommendationsController < ApplicationController
     end 
 
     def book_params
-        params.permit(:title, :author, :image, { comment: [:content, :recommendation_id]})
+        params.permit(:title, :author, :image)
     end 
 
 end
