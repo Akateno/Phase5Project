@@ -3,10 +3,11 @@ import { useHistory } from "react-router";
 import { Card, Icon, Image } from 'semantic-ui-react'
 
 
-function BookCard({ id, title, author, image, userID, setId, selectedBook }) {
+function BookCard({ id, title, author, image, userID, setId, selectedBook, description, previewLink }) {
 
      const [errors, setErrors] = useState([]);
-    
+     const [visibleComments, setVisibleComments] = useState(false);
+
      const history = useHistory();
      function handleClick() {
          fetch("/recommendations", {
@@ -47,12 +48,21 @@ function BookCard({ id, title, author, image, userID, setId, selectedBook }) {
         }
       });
     }
+    const handleImageClick  = () => {
+      setVisibleComments(!visibleComments)}
   return (
    
     <div className="listcards">
       <div className="listcard" onClick={() => setId(id)}>
       </div>
-      <div class="ui card"><div class="image"><img className="cardPic" src={image} alt={title}/></div><div class="content"><div class="header">Name: {title}</div><div class="meta">Author: {author}</div><div class="description">New York Times Best Seller</div></div><div class="extra content"><a><i aria-hidden="true" class="user icon"></i> <button className="addButton" onClick={handleClick} > Recommend </button>
+      <div class="ui card"><div class="image"><img className="cardPic" src={image} alt={title}/></div>
+      <div class="content"><div class="header">Name: {title}</div>
+      <div class="meta">Author: {author}</div></div>
+
+      <a target="_blank" href={previewLink}>Read</a>
+
+      <div class="extra content" > <a onClick={handleImageClick}><i aria-hidden="true" class="info icon"></i>Description</a></div>{ visibleComments ? <div className="description">{description}</div>: []}
+      <div class="extra content"><a><i aria-hidden="true" class="user icon"></i> <button className="addButton" onClick={handleClick} > Recommend </button>
       <button  className="addButton" onClick={addLibrary} > Add to Library</button></a></div></div>
     </div>
     

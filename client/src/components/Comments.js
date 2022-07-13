@@ -4,12 +4,12 @@ import NewComment from "./NewComment"
 
 
 
-function Comments({ book, onAddComment }) {
+function Comments({ book, onAddComment, user }) {
     const [books, setBooks]=useState(book)
     const [isEditing, setIsEditing] = useState(false);
     console.log(book)
 
-  const userItems = book.comments.map((rc)=>(
+    const userItems = book.comments.map((rc)=>(
 
     
     
@@ -21,8 +21,8 @@ function Comments({ book, onAddComment }) {
 
 
       <div class="ui comments"><div class="comment"><a class="avatar"><img src="https://t3.ftcdn.net/jpg/01/18/01/98/360_F_118019822_6CKXP6rXmVhDOzbXZlLqEM2ya4HhYzSV.jpg"/></a>
-      <div class="content"><div class="author">UserName</div>
-      <div class="text">Comment: {rc.content}</div>
+      <div class="content"><div class="author">{user}</div>
+      <div class="text"> {rc.content}</div>
       <div class="actions"><a class="">Reply</a><a class="">Save</a><a class="">Hide</a>
       </div></div></div></div>
        {/* <button onClick={() => setIsEditing((isEditing) => !isEditing)}>+</button>
@@ -36,7 +36,7 @@ function Comments({ book, onAddComment }) {
         <p></p>
       )}  */}
     </div>
-  ))
+    ))
 
   return (
     <div>

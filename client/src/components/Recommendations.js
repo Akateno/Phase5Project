@@ -6,18 +6,13 @@ function Recommendations({user}) {
   const [id, setId] = useState(null);
 
   
-
   useEffect(() => {
     fetch("/recommendations")
       .then((r) => r.json())
       .then((books) => setBooks(books));
     }, []);
 
-    //adding comments
-    // function onAddComment(newComment) {
-    //     const updatedComments = [...books, newComment];
-    //     setBooks(updatedComments);
-    // }
+   
     function onAddComment(newComment) {
       setBooks(books.map(book => {
         if(book.id !== id) {

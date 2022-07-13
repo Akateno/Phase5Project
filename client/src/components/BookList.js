@@ -7,11 +7,16 @@ function BookList({book, selectedBook, setId}) {
       <div className="listcards">
          {book.map((boo)=>(
           <BookCard
+          
           id={boo.id}
           key={boo.id}
-          title={boo.title}
-          author={boo.author}
-          image={boo.image}
+          title={boo.volumeInfo.title}
+          author={boo.volumeInfo.authors}
+          image={boo.volumeInfo.imageLinks.thumbnail}
+          description={boo.volumeInfo.description}
+          previewLink={boo.volumeInfo.previewLink}
+
+
           userID={boo.user_id}
           setId={setId}
           selectedBook={selectedBook}

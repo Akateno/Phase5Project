@@ -53,10 +53,9 @@ background-image: url(../src/images/Picture1.png) ;
 }
 
 .homeHeader{
-border-top: #4d53b3;
-border-bottom: #4d53b3;
+
 border-style: solid;
-border-radius: 1%;
+
 background-color: white;
 }
 .bookheader{
@@ -103,6 +102,19 @@ margin: auto;
   margin: auto;
   
 }
+.description{
+  background-color: lightblue;
+  
+  height: 110px;
+  overflow: scroll;
+}
+.userMessage{
+  background-color: rgba(47, 130, 230, 0.889) ;
+  color: white;
+  font-style: oblique;
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
 
 
 
