@@ -10,7 +10,25 @@
   flex-wrap: wrap;
   justify-content: center;
   justify-content: space-around;
+  padding-top: 1rem;
 }
+.userCards{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  justify-content: space-around;
+  padding-top: 1rem;
+}
+.cardPic{
+  max-height:fit-content;
+}
+
+.userCard {
+  flex: 0 1 24%;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
 
 .title{
   font-size: 60px;
@@ -80,6 +98,26 @@ border-radius: 5px;
 padding: 60px;
 
 margin: auto;
+}
+.booklistHeader{
+  background-image: url(https://images.pexels.com/photos/694740/pexels-photo-694740.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);
+  /* background-repeat: no-repeat;
+  background-size: cover;
+  margin: auto;
+  min-height: 400px;
+  max-width: 80%; */
+background-position: center;
+background-repeat: no-repeat;
+position: relative;
+background-size: cover;
+border-radius: 5px;
+
+padding: 60px;
+
+margin: auto;
+}
+.bookLink{
+  padding-left: 2ch;
 }
 .recMessage{
   color:white;

@@ -1,6 +1,7 @@
 import React from "react";
 
-function BookCard({ id, title, author, image, user,onDeleteBook  }) {
+function BookCard({ id, title, author, image, user,onDeleteBook, previewLink  }) {
+
 
    function handleDeleteClick() {
    
@@ -9,20 +10,26 @@ function BookCard({ id, title, author, image, user,onDeleteBook  }) {
     });
     onDeleteBook(id);
   }
-   
+  
+
+  
    
   return (
    
-    <div className="cards">
-      <div className="card">
-        <img  className="cardPic" src={image} alt={title} />
-        <div className="cardDetails">
-          <h2>Name: {title}</h2>
-        <h3><em>Author: {author}</em> </h3>
-          <button className="addButton" onClick={handleDeleteClick} > Finished Reading </button>
-        </div>
-      </div>
+
+<div className="listcards">
+<div className="listcard" ></div>
+  <div class="ui card"><div class="image"><img className="cardPic" src={image} alt={title}/></div>
+  <div class="content"><div class="header">Name: {title}
+  
+   
+  </div></div>
+    <div class="extra content"><a><i aria-hidden="true" ></i> 
+      <button class="ui button"> <a className="bookLink" target="_blank" href={previewLink}>Read</a></button>
+      <button class=" blue ui button" onClick={handleDeleteClick} > Finished Reading </button></a>
     </div>
+</div>
+</div>
     
   );
 }

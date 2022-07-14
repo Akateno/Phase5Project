@@ -13,11 +13,12 @@ import { faCoffee } from '@fortawesome/free-solid-svg-icons'
 function App() {
   const [user, setUser] = useState(null);
 
+
   useEffect(() => {
     // auto-login
     fetch("/me").then((r) => {
       if (r.ok) {
-        r.json().then((user) => setUser(user));
+        r.json().then((user) => setUser(user))  
       }
     });
   }, []);

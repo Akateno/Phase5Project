@@ -5,7 +5,7 @@ function BookCard({ likeId, id, title, author, image, user, onAddComment, select
 
   
   const [visibleComments, setVisibleComments] = useState(false);
-  console.log(likeId)
+  
 
     function handleClick() {
       fetch(`/likes`, {

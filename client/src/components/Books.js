@@ -42,6 +42,12 @@ function Books() {
             </button>
           </form>
           <h1  className="bookListHeader"> Browse book selection</h1>
+          
+          <div className="booklistHeader">
+              <div>
+                <h1  className="bookheader">Search </h1>
+              </div>
+          </div>
           <BookList book = {books} selectedBook={selectedBook} setId={setId}/>
      </div>
     );

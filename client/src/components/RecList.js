@@ -16,7 +16,7 @@ function BookList({book, selectedBook, setId, onAddComment, user, addLike, remov
           image={boo.image}
           setId={setId}
           selectedBook={selectedBook}
-          likeId = {boo.likes.find(l => l.user_id == user.id )}
+          likeId = {boo.likes.find(l => l.user_id === user.id )}
           //likeId={boo.likes}
           removeLike={removeLike} 
           addLike={addLike}

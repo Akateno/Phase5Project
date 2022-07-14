@@ -2,6 +2,7 @@ import React, { useState } from "react";
 
 function NewComment({id, onAddComment}) {
     const [content, setContent] = useState("");
+    const [errors, setErrors] = useState([]);
     console.log(id)
   
     
@@ -17,10 +18,22 @@ function NewComment({id, onAddComment}) {
             recommendation_id: id, 
            }),
          })
-           .then((r) => r.json())
-           .then((addComment) => onAddComment(addComment));
+           .then((r) => {
+            if (r.ok) {
+              r.json().then((addComment)=>{
+                onAddComment(addComment);
+              });
+            }else {
+              r.json().then((err) => setErrors(err.errors));
+            }
+
+           });
+          
+           
       }
- 
+          const loginError =  errors.map((err) => (
+            <p key={err}> {err}</p>
+          )) 
 
     return (
     <form className="addComment" onSubmit={handleFormSubmit}>
@@ -28,6 +41,7 @@ function NewComment({id, onAddComment}) {
     <div class="ui fluid icon input">
       <input  type="text" onChange={(e) => setContent(e.target.value)} value={content} name="comment" placeholder="comment.." />
     </div>
+    {loginError}
     <button className="ui button" type="submit">
           Add
      </button>

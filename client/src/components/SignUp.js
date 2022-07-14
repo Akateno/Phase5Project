@@ -2,6 +2,10 @@ import React, { useState } from "react";
 
 function SignUp({ onLogin, setShowLogin }) {
   const [username, setUsername] = useState("");
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [city, setCity] = useState("");
+  const [state, setState] = useState("");
   const [password, setPassword] = useState("");
   const [passwordConfirmation, setPasswordConfirmation] = useState("");
 
@@ -14,6 +18,10 @@ function SignUp({ onLogin, setShowLogin }) {
       },
       body: JSON.stringify({
         username,
+        name, 
+        email, 
+        city, 
+        state,
         password,
         password_confirmation: passwordConfirmation,
       }),
@@ -35,7 +43,7 @@ function SignUp({ onLogin, setShowLogin }) {
       </div>
       <form class="ui form attached fluid segment" onSubmit={handleSubmit}>
             <h1>Sign Up</h1>
-            <label htmlFor="username">Username</label>
+            <label htmlFor="username">Username:</label>
             <input
             type="text"
             id="username"
@@ -43,6 +51,41 @@ function SignUp({ onLogin, setShowLogin }) {
             value={username}
             onChange={(e) => setUsername(e.target.value)}
             />
+
+            <label htmlFor="name">Name:</label>
+            <input
+            type="text"
+            id="name"
+            autoComplete="off"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            />
+
+            <label htmlFor="email">e-mail:</label>
+            <input
+            type="text"
+            id="email"
+            autoComplete="off"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            />
+            <label htmlFor="city">City:</label>
+            <input
+            type="text"
+            id="city"
+            autoComplete="off"
+            value={city}
+            onChange={(e) => setCity(e.target.value)}
+            />
+            <label htmlFor="state">State:</label>
+            <input
+            type="text"
+            id="state"
+            autoComplete="off"
+            value={state}
+            onChange={(e) => setState(e.target.value)}
+            />
+
             <label htmlFor="password">Password</label>
             <input
             type="password"

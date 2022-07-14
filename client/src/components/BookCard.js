@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useHistory } from "react-router";
-import { Card, Icon, Image } from 'semantic-ui-react'
+
 
 
 function BookCard({ id, title, author, image, userID, setId, selectedBook, description, previewLink }) {
@@ -39,6 +39,7 @@ function BookCard({ id, title, author, image, userID, setId, selectedBook, descr
           title,
           author,
           image,
+          previewLink,
         }),
       }).then((r) => {
         if (r.ok) {
@@ -53,17 +54,14 @@ function BookCard({ id, title, author, image, userID, setId, selectedBook, descr
   return (
    
     <div className="listcards">
-      <div className="listcard" onClick={() => setId(id)}>
-      </div>
-      <div class="ui card"><div class="image"><img className="cardPic" src={image} alt={title}/></div>
-      <div class="content"><div class="header">Name: {title}</div>
-      <div class="meta">Author: {author}</div></div>
-
-      <a target="_blank" href={previewLink}>Read</a>
-
-      <div class="extra content" > <a onClick={handleImageClick}><i aria-hidden="true" class="info icon"></i>Description</a></div>{ visibleComments ? <div className="description">{description}</div>: []}
-      <div class="extra content"><a><i aria-hidden="true" class="user icon"></i> <button className="addButton" onClick={handleClick} > Recommend </button>
-      <button  className="addButton" onClick={addLibrary} > Add to Library</button></a></div></div>
+        <div className="listcard" onClick={() => setId(id)}></div>
+          <div class="ui card"><div class="image"><img className="cardPic" src={image} alt={title}/></div>
+          <div class="content"><div class="header">Name: {title}</div>
+          <div class="meta">Author: {author}</div></div>
+          <div class="extra content" > <a onClick={handleImageClick}><i aria-hidden="true" class="blue info icon"></i>Description</a></div>{ visibleComments ? <div className="description">{description}</div>: []}
+          <div class="extra content"><a><i aria-hidden="true" class="user icon"></i> <button className="addButton" onClick={handleClick} > Recommend </button>
+          <button  className="addButton" onClick={addLibrary} > Add to Library</button></a></div>
+        </div>
     </div>
     
   );

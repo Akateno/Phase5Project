@@ -4,7 +4,7 @@ function UserList({book, onDeleteBook, selectedBook, setId}) {
   
   
     return (
-      <div className="cards">
+      <div className="listcards">
          {book.map((boo)=>(
           <UserBookCard
           id={boo.id}
@@ -14,6 +14,7 @@ function UserList({book, onDeleteBook, selectedBook, setId}) {
           image={boo.image}
           userId={boo.user_id}
           onDeleteBook={onDeleteBook}
+          previewLink={boo.previewLink}
           />
          ))}
       </div>

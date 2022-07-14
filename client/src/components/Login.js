@@ -15,7 +15,7 @@ function Login({ onLogin }) {
         
         
         <div className="title"><h1 class="ui header"><div className="title"> BookShare <FontAwesomeIcon icon={faCoffee} /> </div></h1></div>
-        <h3 class="ui dividing header"></h3>
+        
              {showLogin ? (
            <>
             <LoginForm onLogin={onLogin} setShowLogin={setShowLogin} />
