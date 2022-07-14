@@ -22,7 +22,7 @@ function BookCard({ id, title, author, image, userID, setId, selectedBook, descr
            }),
          }).then((r) => {
            if (r.ok) {
-             history.push("/recommendations");
+            //  history.push("/recommendations");
            } else {
              r.json().then((err) => setErrors(err.errors));
            }
@@ -43,7 +43,7 @@ function BookCard({ id, title, author, image, userID, setId, selectedBook, descr
         }),
       }).then((r) => {
         if (r.ok) {
-          history.push("/home");
+          // history.push("/home");
         } else {
           r.json().then((err) => setErrors(err.errors));
         }

@@ -9,40 +9,30 @@ function Comments({ book, onAddComment, user }) {
     const [isEditing, setIsEditing] = useState(false);
     console.log(book)
 
-    const userItems = book.comments.map((rc)=>(
+    const userItems = 
+    
+    
+    
+    book.comments.map((rc)=>(
 
     
     
     <div className="reviewsContainer"key={rc.id}>
-
-
-      
-
-
-
-      <div class="ui comments"><div class="comment"><a class="avatar"><img src="https://t3.ftcdn.net/jpg/01/18/01/98/360_F_118019822_6CKXP6rXmVhDOzbXZlLqEM2ya4HhYzSV.jpg"/></a>
-      <div class="content"><div class="author">{user}</div>
+      <div class="ui comments"><div class="comment"><a class="avatar"><img src={user.image}/></a>
+      <div class="content"><div class="author">{user.username}</div>
       <div class="text"> {rc.content}</div>
       <div class="actions"><a class="">Reply</a><a class="">Save</a><a class="">Hide</a>
       </div></div></div></div>
-       {/* <button onClick={() => setIsEditing((isEditing) => !isEditing)}>+</button>
-        {isEditing ? (
-        <NewComment 
-          id={book.id}
-          contentt={rc.content}
-          onAddComment={onAddComment}  
-        />
-      ) : (
-        <p></p>
-      )}  */}
-    </div>
+      </div>
     ))
 
   return (
     <div>
-      
+        
+        {/* <div class="ui comments"><div class="comment"><a class="avatar"><img src={user.image}/></a>
+      <div class="content"><div class="author">{user.username}</div></div></div></div> */}
         <div>
-        <button onClick={() => setIsEditing((isEditing) => !isEditing)}>+</button>
+              <button onClick={() => setIsEditing((isEditing) => !isEditing)}>+</button>
                 {userItems}
         </div>
         {

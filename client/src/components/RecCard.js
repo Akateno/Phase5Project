@@ -38,7 +38,7 @@ function BookCard({ likeId, id, title, author, image, user, onAddComment, select
       <div className="card" onClick={() => setId(id)}>
       <div class="ui card"><div class="image"><img  className="cardPic" src={image} alt={title}/></div>
       <div class="content"><div class="header">Name: {title}</div>
-      <div >Reccomended by : {user} {likeId? (<button id={likeId} class="ui red icon button" onClick={handleDeleteClick}  > <i aria-hidden="true" class="heart icon"></i> </button>): (<button class="ui icon button" onClick={handleClick} id={likeId} > <i aria-hidden="true" class="heart icon"></i> </button>)}  </div></div>
+      <div >Reccomended by : {user.username} {likeId? (<button id={likeId} class="ui red icon button" onClick={handleDeleteClick}  > <i aria-hidden="true" class="heart icon"></i> </button>): (<button class="ui icon button" onClick={handleClick} id={likeId} > <i aria-hidden="true" class="heart icon"></i> </button>)}  </div></div>
       <div class="extra content" > <a onClick={handleImageClick}><i aria-hidden="true" class="comment icon"></i>Comments </a></div>{ visibleComments ? <Comments onAddComment={onAddComment} book={selectedBook} user={user}/> : []}
       </div>
       </div>

@@ -24,7 +24,7 @@ function BookList({book, selectedBook, setId, onAddComment, user, addLike, remov
           book={book}
           onAddComment={onAddComment}
 
-          user={boo.user.username}
+          user={boo.user}
          
           
           />

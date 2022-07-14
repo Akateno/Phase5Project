@@ -7,12 +7,8 @@ function Books() {
   const [fbook, setFbook]=useState("")
   const [apiKey, setApiKey]=useState("AIzaSyA-v2vvf7nN3GB6lkWhYRtkvVZwSHQ4wtk")
 
-//   useEffect(() => {
-//     fetch("https://www.googleapis.com/books/v1/volumes?q=${fbook}&key=${apiKey}&maxResults=4")
-//       .then((r) => r.json())
-//       .then((books) => setBooks(books.items));
-//   }, []);
-// console.log(books)
+
+
   const selectedBook = books.find((a) => a.id === id);
 
     function handleChange(e){
@@ -22,17 +18,15 @@ function Books() {
     
     function HandleSubmit(e){
       e.preventDefault();
-      
-        fetch(`https://www.googleapis.com/books/v1/volumes?q=${fbook}&key=${apiKey}&maxResults=40`)
+       
+      fetch(`https://www.googleapis.com/books/v1/volumes?q=${fbook}&key=${apiKey}&maxResults=40`)
           .then((r) => r.json())
-          .then((dogs) => setBooks(dogs.items));
+          .then((book) => setBooks(book.items));
     }
-
 
     return (
       
       <div className="bookcontainer">
-
           <form onSubmit={HandleSubmit} className="search" >
             <div class="ui fluid icon input">
               <input onChange={handleChange} type="text"  name="comment" placeholder="searchbooks.." />
@@ -45,7 +39,7 @@ function Books() {
           
           <div className="booklistHeader">
               <div>
-                <h1  className="bookheader">Search </h1>
+                <h1  className="bookheader">Search Any Subject!</h1>
               </div>
           </div>
           <BookList book = {books} selectedBook={selectedBook} setId={setId}/>

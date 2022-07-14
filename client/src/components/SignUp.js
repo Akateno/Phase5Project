@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { useHistory } from "react-router";
+
 
 function SignUp({ onLogin, setShowLogin }) {
   const [username, setUsername] = useState("");
@@ -6,8 +8,12 @@ function SignUp({ onLogin, setShowLogin }) {
   const [email, setEmail] = useState("");
   const [city, setCity] = useState("");
   const [state, setState] = useState("");
+  const [image, setImage] = useState("");
+
   const [password, setPassword] = useState("");
   const [passwordConfirmation, setPasswordConfirmation] = useState("");
+
+  const history = useHistory();
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -20,7 +26,8 @@ function SignUp({ onLogin, setShowLogin }) {
         username,
         name, 
         email, 
-        city, 
+        city,
+        image, 
         state,
         password,
         password_confirmation: passwordConfirmation,
@@ -28,6 +35,7 @@ function SignUp({ onLogin, setShowLogin }) {
     }).then((r) => {
       if (r.ok) {
         r.json().then((user) => onLogin(user));
+        history.push("/home");
       }
     });
   }
@@ -69,6 +77,17 @@ function SignUp({ onLogin, setShowLogin }) {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             />
+
+            <label htmlFor="email">Image-Link:</label>
+            <input
+            type="text"
+            id="image"
+            autoComplete="off"
+            value={image}
+            onChange={(e) => setImage(e.target.value)}
+            />
+
+
             <label htmlFor="city">City:</label>
             <input
             type="text"
