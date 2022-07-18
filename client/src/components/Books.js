@@ -1,14 +1,15 @@
 import React, {useEffect, useState} from "react"
 import BookList from "./BookList"
+require("dotenv").config();
 function Books() {
+  // require("dotenv").config();
   const [books, setBooks] = useState([])
   const [id, setId] = useState(null);
 
   const [fbook, setFbook]=useState("")
-  const [apiKey, setApiKey]=useState("AIzaSyA-v2vvf7nN3GB6lkWhYRtkvVZwSHQ4wtk")
+ const [apiKey, setApiKey]=useState("AIzaSyCDQ6PZP4s8LLDfDNk950q63jkANyGvH4c")
 
-
-
+  
   const selectedBook = books.find((a) => a.id === id);
 
     function handleChange(e){
@@ -23,6 +24,8 @@ function Books() {
           .then((r) => r.json())
           .then((book) => setBooks(book.items));
     }
+
+
 
     return (
       

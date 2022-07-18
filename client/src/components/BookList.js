@@ -12,9 +12,17 @@ function BookList({book, selectedBook, setId}) {
           key={boo.id}
           title={boo.volumeInfo.title}
           author={boo.volumeInfo.authors}
-          image={boo.volumeInfo.imageLinks.thumbnail}
+          // image={boo.volumeInfo.imageLinks.thumbnail}
           description={boo.volumeInfo.description}
           previewLink={boo.volumeInfo.previewLink}
+
+          image={
+            boo.volumeInfo.imageLinks === undefined
+              ? ""
+              : boo.volumeInfo.imageLinks.thumbnail
+          }
+
+
 
 
           userID={boo.user_id}

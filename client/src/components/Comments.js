@@ -18,12 +18,10 @@ function Comments({ book, onAddComment, user }) {
     
     
     <div className="reviewsContainer"key={rc.id}>
-      <div class="ui comments"><div class="comment"><a class="avatar"><img src={user.image}/></a>
-      <div class="content"><div class="author">{user.username}</div>
+     
       <div class="text"> {rc.content}</div>
-      <div class="actions"><a class="">Reply</a><a class="">Save</a><a class="">Hide</a>
-      </div></div></div></div>
-      </div>
+      <div class="actions">
+      </div></div>
     ))
 
   return (
