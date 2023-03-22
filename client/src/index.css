@@ -12,6 +12,13 @@
   justify-content: space-around;
   padding-top: 1rem;
 }
+.communityCards{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  justify-content: space-around;
+  padding-top: 1rem;
+}
 .userCards{
   display: flex;
   flex-wrap: wrap;
@@ -20,7 +27,13 @@
   padding-top: 1rem;
 }
 .cardPic{
-  max-height:fit-content;
+  height:200px;
+  width:100px;
+  
+}
+.recImage{
+  width:fit-content;
+  height: fit-content;
 }
 
 .userCard {

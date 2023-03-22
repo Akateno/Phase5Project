@@ -28,13 +28,10 @@ function NewComment({id, onAddComment}) {
             }
 
            });
-          
-           
       }
           const loginError =  errors.map((err) => (
             <p key={err}> {err}</p>
           )) 
-
     return (
     <form className="addComment" onSubmit={handleFormSubmit}>
     {/* <input  type="text" onChange={(e) => setContent(e.target.value)} value={content} name="name" placeholder="comment.." /> */}

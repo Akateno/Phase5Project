@@ -10,9 +10,6 @@ function Comments({ book, onAddComment, user }) {
     console.log(book)
 
     const userItems = 
-    
-    
-    
     book.comments.map((rc)=>(
 
     
@@ -26,9 +23,6 @@ function Comments({ book, onAddComment, user }) {
 
   return (
     <div>
-        
-        {/* <div class="ui comments"><div class="comment"><a class="avatar"><img src={user.image}/></a>
-      <div class="content"><div class="author">{user.username}</div></div></div></div> */}
         <div>
               <button onClick={() => setIsEditing((isEditing) => !isEditing)}>+</button>
                 {userItems}
@@ -37,8 +31,6 @@ function Comments({ book, onAddComment, user }) {
             isEditing? (<NewComment 
               id={books.id}
               onAddComment={onAddComment}
-              
-              
             />):(<p></p>)
         }
     </div>

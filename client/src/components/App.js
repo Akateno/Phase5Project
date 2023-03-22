@@ -13,7 +13,6 @@ import { faCoffee } from '@fortawesome/free-solid-svg-icons'
 function App() {
   const [user, setUser] = useState(null);
 
-
   useEffect(() => {
     // auto-login
     fetch("/me").then((r) => {
@@ -34,11 +33,6 @@ function App() {
       </div>
       
       <div  >
-        {/* <Switch>
-          <Route path="booklist">
-            <BookList/>
-          </Route>
-        </Switch> */}
         {user ? (
           <Switch>
             <Route exact path="/home">
@@ -59,13 +53,10 @@ function App() {
             <Route path="/login">
               <Login setUser={setUser} />
             </Route>
-            
-           
           </Switch>
         )}
       </div>
     </div>
-    
   );
 }
 

@@ -4,16 +4,11 @@ function BookCard({ id, title, author, image, user,onDeleteBook, previewLink  })
 
 
    function handleDeleteClick() {
-   
     fetch(`/user_books/${id}`, {
       method: "DELETE",
     });
     onDeleteBook(id);
   }
-  
-
-  
-   
   return (
    
 

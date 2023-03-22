@@ -7,7 +7,7 @@ function Books() {
   const [id, setId] = useState(null);
 
   const [fbook, setFbook]=useState("")
- const [apiKey, setApiKey]=useState("AIzaSyCDQ6PZP4s8LLDfDNk950q63jkANyGvH4c")
+ const [apiKey, setApiKey]=useState("")
 
   
   const selectedBook = books.find((a) => a.id === id);
@@ -25,8 +25,6 @@ function Books() {
           .then((book) => setBooks(book.items));
     }
 
-
-
     return (
       
       <div className="bookcontainer">
@@ -39,7 +37,6 @@ function Books() {
             </button>
           </form>
           <h1  className="bookListHeader"> Browse book selection</h1>
-          
           <div className="booklistHeader">
               <div>
                 <h1  className="bookheader">Search Any Subject!</h1>

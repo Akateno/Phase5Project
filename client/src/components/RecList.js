@@ -2,11 +2,8 @@ import React from "react"
 import RecCard from "./RecCard"
 function BookList({book, selectedBook, setId, onAddComment, user, addLike, removeLike}) {
   
-
-  
-  // console.log(book)
     return (
-      <div className="cards">
+      <div className="listcards">
          {book.map((boo)=>(
           <RecCard
           id={boo.id}
@@ -20,13 +17,9 @@ function BookList({book, selectedBook, setId, onAddComment, user, addLike, remov
           //likeId={boo.likes}
           removeLike={removeLike} 
           addLike={addLike}
-          
           book={book}
           onAddComment={onAddComment}
-
           user={boo.user}
-         
-          
           />
          ))}
       </div>

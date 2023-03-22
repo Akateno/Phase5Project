@@ -2,9 +2,10 @@ Rails.application.routes.draw do
  
       resources :likes, only: [:create, :destroy, :index]
       resources :user_books
+
+      #nested routing 
       resources :recommendations do
         resources :comments
-        
       end 
 
       resources :books

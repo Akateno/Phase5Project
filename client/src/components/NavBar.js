@@ -11,9 +11,6 @@ function NavBar({ user, setUser }) {
   }
   return (
     <div  className="navbar"> 
-
-      
-
       <header class="ui menu" color="white" >
       
         <div class="active item" >
